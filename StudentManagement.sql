@@ -1,47 +1,85 @@
 create database StudentManagement;
 use StudentManagement;
 
-create table department (
-	dID				varchar(10),
-    dName			varchar(50)
+create table Department (
+	dID				varchar(10)			primary key,
+    dName 			varchar(50)			not null
 );
 
-create table course (
-	cID				char(5),
-    cName			varchar(100),
-    credit			int,
-    theoryClass		int,
-    practiceClass 	int
+create table Course (
+	cID				char(5)				primary key,
+    cName			varchar(50)			not null,
+    credit 			int 				check(credit >= 1),
+    theoryClass 	int 				default 0,
+    practiceClass 	int					default 0
 );
 
-create table student (
-	sID				char(5),
-    sName 			varchar(50),
-    sex				char(1),
-    DOB 			date,
-    POB				varchar(30),
-    sAddress		varchar(100),
-    dID				varchar(10)
+create table Instructor (
+	iID				char(7)				primary key, 
+    iName			varchar(50)			not null,
+    dID				varchar(10),
+    salary			float				not null,
+    check (iID regexp '^[I][0-9]{6}$'),
+    foreign key (dID) references Department(dID)
 );
 
-create table grade (
-	sID				char(5),
+create table Teaches (
+	iID				char(7),
     cID				char(5),
-    grade			float
+    semester		int,
+    year			int,
+    primary key (iID, cID, semester, year),
+    foreign key (iID) references Instructor(iID),
+    foreign key (cID) references Course(cID)
 );
 
--- drop table department;
--- drop table course;
--- drop table grade;
--- drop table student;
+create table Student (
+	sID				char(6)				primary key,
+    sName			varchar(50)			not null,
+    sex 			char(1)				check(sex in ('M', 'F')),
+    dID				varchar(10),
+    address			varchar(100),
+    check (sID regexp '^[S][0-9]{5}$'),
+    foreign key (dID) references Department(dID)
+);
 
-insert into department values ('ls', 'Law School');
-insert into department values ('ps', 'Pedagogical School');
-insert into department values ('ns', 'Natural Science');
-insert into department values ('ss', 'Social Science');
-insert into department values ('argi', 'Economic');
-insert into department values ('poly', 'Polytechnic School');
-insert into department values ('tech', 'College of Infomation & Communication Technology');
--- select * from department;
+create table Grade (
+	sID				char(6),
+    cID				char(5),
+    iID				char(7),
+    semester		int,
+    year			int,
+    grade			float				check(grade between 0 and 10),
+    primary key (sID, cID, iID, semester, year),
+	foreign key (sID) references Student(sID),
+    foreign key (cID) references Course(cID),
+    foreign key (iID) references Instructor(iID)
+);
 
-insert into course values ('', '', , , );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
