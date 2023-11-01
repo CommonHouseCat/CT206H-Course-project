@@ -56,29 +56,103 @@ create table Grade (
     foreign key (iID) references Instructor(iID)
 );
 
+-- Drop table Department
+-- Drop table Course
+-- Drop table Instructor
+-- Drop table Teaches
+-- Drop table Student
+-- Drop table Grade
+
+-- select * from Department;
+insert into Department values ('law', 'Law School');
+insert into Department values ('peda', 'Pedagogical School');
+insert into Department values ('econ', 'College of Economic');
+insert into Department values ('natsci', 'College of Natural Science');
+insert into Department values ('tech', 'College of Infomation & Communication Technology');
 
 
+-- select * from Course;
+insert into Course values ('LN101', 'General Law', 2, 30, 0); 
+insert into Course values ('SP101', 'Linear Algebra', 4, 60, 0); 
+insert into Course values ('SP179', 'Public Speaking', 3, 30, 30); 
+insert into Course values ('EC101', 'Economic 101', 2, 0, 30);  
+insert into Course values ('TN001', 'Calculus 101', 3, 60, 0); 
+insert into Course values ('TN004', 'Statistics', 3, 60, 0); 
+insert into Course values ('CT102', 'Introduction to Programming', 4, 30, 60);
+insert into Course values ('CT101', 'Basic Infomatic', 4, 30, 60);
 
 
+-- select * from Instructor; 
+insert into Instructor values ('I001001', 'John Doe', 'law', 65000); 
+insert into Instructor values ('I002001', 'Michael Johnson', 'peda', 60000); 
+insert into Instructor values ('I002002', 'Emily Williams', 'peda', 58000); 
+insert into Instructor values ('I003001', 'Daniel Brown', 'econ', 58000); 
+insert into Instructor values ('I004001', 'Samantha Martinez', 'natsci', 67000);
+insert into Instructor values ('I004002', 'Jane Smith', 'natsci', 70000);
+insert into Instructor values ('I005001', 'Joe Generic', 'tech', 64000);
+insert into Instructor values ('I005002', 'Olivia Davis', 'tech', 60000);
 
 
+-- select * from Teaches;
+insert into Teaches values ('I001001', 'LN101', 1, 2016); 
+insert into Teaches values ('I001001', 'LN101', 2, 2017);
+insert into Teaches values ('I001001', 'LN101', 3, 2018);
 
+insert into Teaches values ('I002002', 'SP101', 1, 2016);
+insert into Teaches values ('I002001', 'SP101', 3, 2017);
+insert into Teaches values ('I002002', 'SP101', 2, 2018);
 
+insert into Teaches values ('I002001', 'SP179', 3, 2016);
+insert into Teaches values ('I002002', 'SP179', 1, 2017);
+insert into Teaches values ('I002001', 'SP179', 2, 2018);
 
+insert into Teaches values ('I003001', 'EC101', 2, 2016);
+insert into Teaches values ('I003001', 'EC101', 1, 2017);
+insert into Teaches values ('I003001', 'EC101', 2, 2018);
 
+insert into Teaches values ('I004001', 'TN001', 3, 2016);
+insert into Teaches values ('I004002', 'TN001', 2, 2017);
+insert into Teaches values ('I004001', 'TN001', 1, 2018);
 
+insert into Teaches values ('I004002', 'TN004', 2, 2016);
+insert into Teaches values ('I004001', 'TN004', 3, 2017);
+insert into Teaches values ('I004002', 'TN004', 1, 2018);
 
+insert into Teaches values ('I005001', 'CT101', 1, 2016);
+insert into Teaches values ('I005002', 'CT101', 2, 2017);
+insert into Teaches values ('I005001', 'CT101', 3, 2018);
 
+insert into Teaches values ('I005002', 'CT102', 2, 2016);
+insert into Teaches values ('I005001', 'CT102', 3, 2017);
+insert into Teaches values ('I005002', 'CT102', 1, 2018);
 
+-- select * from Student;
+insert into Student values ('S01001', 'Horus Nguyen', 'M', 'law', 'Condo Building A, room 101');
+insert into Student values ('S01002', 'Leman Russ', 'M', 'law', 'Condo Building A, room 102');
+insert into Student values ('S01003', 'Fulgrim Le', 'F', 'law', 'Condo Building A, room 103');
+insert into Student values ('S01004', 'Vulkan Pham', 'M', 'law', 'Condo Building A, room 104');
 
+insert into Student values ('S02001', 'Erda Huynh', 'F', 'peda', 'Condo Building A, room 105');
+insert into Student values ('S02002', 'Konrad Curze', 'M', 'peda', 'Condo Building A, room 106');
+insert into Student values ('S02003', 'Sanguinius Ngo', 'F', 'peda', 'Condo Building A, room 107');
+insert into Student values ('S02004', 'Henry Do', 'M', 'peda', 'Condo Building A, room 108');
 
+insert into Student values ('S03001', 'Isabella Vo', 'F', 'econ', 'Condo Building A, room 109');
+insert into Student values ('S03002', 'Jaghatai Khan', 'M', 'econ', 'Condo Building A, room 110');
+insert into Student values ('S03003', 'Rogal Dorn', 'M', 'econ', 'Condo Building A, room 111');
+insert into Student values ('S03004', 'Lily Nguyen', 'F', 'econ', 'Condo Building A, room 112');
 
+insert into Student values ('S04001', 'Lion El Jonson', 'M', 'natsci', 'Condo Building A, room 113');
+insert into Student values ('S04002', 'Lotara Sarrin', 'F', 'natsci', 'Condo Building A, room 114');
+insert into Student values ('S04003', 'Corvus Corax', 'M', 'natsci', 'Condo Building A, room 115');
+insert into Student values ('S04004', 'Penelope Bui', 'F', 'natsci', 'Condo Building A, room 116');
 
+insert into Student values ('S05001', 'Constantin Valdor', 'M', 'tech', 'Condo Building A, room 117');
+insert into Student values ('S05002', 'Roboute Guilliman', 'M', 'tech', 'Condo Building A, room 118');
+insert into Student values ('S05003', 'Perturabo Le', 'M', 'tech', 'Condo Building A, room 119');
+insert into Student values ('S05004', 'Angron Vo', 'M', 'tech', 'Condo Building A, room 120');
 
-
-
-
-
+-- select * from Grade;
 
 
 
