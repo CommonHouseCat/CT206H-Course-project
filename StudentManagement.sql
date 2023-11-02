@@ -53,7 +53,7 @@ create table Grade (
     primary key (sID, cID, iID, semester, year),
 	foreign key (sID) references Student(sID),
     foreign key (cID) references Course(cID),
-    foreign key (iID) references Instructor(iID)
+    foreign key (iID) references Teaches(iID)
 );
 
 -- Drop table Department
@@ -94,36 +94,31 @@ insert into Instructor values ('I005002', 'Olivia Davis', 'tech', 60000);
 
 
 -- select * from Teaches;
-insert into Teaches values ('I001001', 'LN101', 1, 2016); 
-insert into Teaches values ('I001001', 'LN101', 2, 2017);
-insert into Teaches values ('I001001', 'LN101', 3, 2018);
-
+insert into Teaches values ('I001001', 'LN101', 1, 2016);
 insert into Teaches values ('I002002', 'SP101', 1, 2016);
-insert into Teaches values ('I002001', 'SP101', 3, 2017);
-insert into Teaches values ('I002002', 'SP101', 2, 2018);
-
-insert into Teaches values ('I002001', 'SP179', 3, 2016);
-insert into Teaches values ('I002002', 'SP179', 1, 2017);
-insert into Teaches values ('I002001', 'SP179', 2, 2018);
-
-insert into Teaches values ('I003001', 'EC101', 2, 2016);
-insert into Teaches values ('I003001', 'EC101', 1, 2017);
-insert into Teaches values ('I003001', 'EC101', 2, 2018);
-
-insert into Teaches values ('I004001', 'TN001', 3, 2016);
-insert into Teaches values ('I004002', 'TN001', 2, 2017);
-insert into Teaches values ('I004001', 'TN001', 1, 2018);
-
-insert into Teaches values ('I004002', 'TN004', 2, 2016);
-insert into Teaches values ('I004001', 'TN004', 3, 2017);
-insert into Teaches values ('I004002', 'TN004', 1, 2018);
-
 insert into Teaches values ('I005001', 'CT101', 1, 2016);
-insert into Teaches values ('I005002', 'CT101', 2, 2017);
-insert into Teaches values ('I005001', 'CT101', 3, 2018);
-
+insert into Teaches values ('I003001', 'EC101', 2, 2016);
+insert into Teaches values ('I004002', 'TN004', 2, 2016);
 insert into Teaches values ('I005002', 'CT102', 2, 2016);
+insert into Teaches values ('I002001', 'SP179', 3, 2016);
+insert into Teaches values ('I004001', 'TN001', 3, 2016);
+
+insert into Teaches values ('I002002', 'SP179', 1, 2017);
+insert into Teaches values ('I003001', 'EC101', 1, 2017);
+insert into Teaches values ('I005002', 'CT101', 2, 2017);
+insert into Teaches values ('I004002', 'TN001', 2, 2017);
+insert into Teaches values ('I001001', 'LN101', 2, 2017);
+insert into Teaches values ('I002001', 'SP101', 3, 2017);
+insert into Teaches values ('I004001', 'TN004', 3, 2017);
 insert into Teaches values ('I005001', 'CT102', 3, 2017);
+
+insert into Teaches values ('I004001', 'TN001', 1, 2018);
+insert into Teaches values ('I004002', 'TN004', 1, 2018);
+insert into Teaches values ('I002002', 'SP101', 2, 2018);
+insert into Teaches values ('I002001', 'SP179', 2, 2018);
+insert into Teaches values ('I003001', 'EC101', 2, 2018);
+insert into Teaches values ('I001001', 'LN101', 3, 2018);
+insert into Teaches values ('I005001', 'CT101', 3, 2018);
 insert into Teaches values ('I005002', 'CT102', 1, 2018);
 
 -- select * from Student;
@@ -153,6 +148,76 @@ insert into Student values ('S05003', 'Perturabo Le', 'M', 'tech', 'Condo Buildi
 insert into Student values ('S05004', 'Angron Vo', 'M', 'tech', 'Condo Building A, room 120');
 
 -- select * from Grade;
+insert into Grade values ('S05004', 'LN101', 'I001001', 1, 2016, 8.8);
+insert into Grade values ('S01001', 'LN101', 'I001001', 1, 2016, 8.0);
+insert into Grade values ('S01002', 'LN101', 'I001001', 1, 2016, 7.8);
+insert into Grade values ('S01003', 'CT101', 'I005001', 1, 2016, 8.3);
+insert into Grade values ('S01004', 'LN101', 'I001001', 1, 2016, 8.5);
+insert into Grade values ('S02001', 'CT101', 'I005001', 1, 2016, 7.5);
+insert into Grade values ('S02004', 'SP101', 'I002002', 1, 2016, 7.8);
+insert into Grade values ('S04003', 'LN101', 'I001001', 1, 2016, 8.9);
+insert into Grade values ('S03002', 'LN101', 'I001001', 1, 2016, 8.7);
+insert into Grade values ('S03003', 'LN101', 'I001001', 1, 2016, 7.8);
+insert into Grade values ('S04001', 'SP101', 'I002002', 1, 2016, 8.7);
+insert into Grade values ('S02003', 'LN101', 'I001001', 1, 2016, 8.0);
+
+insert into Grade values ('S05003', 'EC101', 'I003001', 2, 2016, 7.7);
+insert into Grade values ('S04003', 'EC101', 'I003001', 2, 2016, 8.3);
+insert into Grade values ('S05001', 'CT102', 'I005002', 2, 2016, 8.5);
+insert into Grade values ('S04002', 'CT102', 'I005002', 2, 2016, 8.5);
+insert into Grade values ('S03003', 'TN004', 'I004002', 2, 2016, 8.5);
+insert into Grade values ('S03001', 'EC101', 'I003001', 2, 2016, 7.5);
+
+insert into Grade values ('S02003', 'TN001', 'I004001', 3, 2016, 8.7);
+insert into Grade values ('S03004', 'SP179', 'I002001', 3, 2016, 8.2);
+
+
+
+insert into Grade values ('S01001', 'SP179', 'I002002', 1, 2017, 7.5);
+insert into Grade values ('S01003', 'EC101', 'I003001', 1, 2017, 7.5);
+insert into Grade values ('S01004', 'SP179', 'I002002', 1, 2017, 7.0);
+insert into Grade values ('S02002', 'SP179', 'I002002', 1, 2017, 9.0);
+insert into Grade values ('S04003', 'SP179', 'I002002', 1, 2017, 9.0);
+insert into Grade values ('S05002', 'LN101', 'I001001', 2, 2017, 8.3);
+
+insert into Grade values ('S03003', 'CT101', 'I005002', 2, 2017, 9.1);
+insert into Grade values ('S01001', 'CT101', 'I005002', 2, 2017, 9.0);
+insert into Grade values ('S02003', 'CT101', 'I005002', 2, 2017, 9.5);
+
+insert into Grade values ('S02002', 'SP101', 'I002001', 3, 2017, 8.8);
+insert into Grade values ('S03002', 'CT102', 'I005001', 3, 2017, 7.9);
+insert into Grade values ('S04002', 'TN004', 'I004001', 3, 2017, 7.8);
+
+
+
+insert into Grade values ('S01004', 'TN004', 'I004002', 1, 2018, 9.2);
+insert into Grade values ('S03004', 'TN001', 'I004001', 1, 2018, 9.3);
+insert into Grade values ('S04004', 'TN001', 'I004001', 1, 2018, 9.1);
+insert into Grade values ('S05003', 'TN004', 'I004001', 1, 2018, 9.0);
+insert into Grade values ('S05002', 'CT102', 'I005002', 1, 2018, 9.1);
+
+insert into Grade values ('S01002', 'SP179', 'I002001', 2, 2018, 8.5);
+insert into Grade values ('S02003', 'SP179', 'I002001', 2, 2018, 7.8);
+insert into Grade values ('S02004', 'LN101', 'I001001', 2, 2017, 8.5);
+insert into Grade values ('S05004', 'SP179', 'I002001', 2, 2018, 7.5);
+insert into Grade values ('S05002', 'SP101', 'I002002', 2, 2018, 7.9);
+insert into Grade values ('S05003', 'SP179', 'I002001', 2, 2018, 8.6);
+insert into Grade values ('S03002', 'SP179', 'I002001', 2, 2018, 9.2);
+insert into Grade values ('S03003', 'SP101', 'I002002', 2, 2018, 8.0);
+
+insert into Grade values ('S01003', 'SP179', 'I002001', 3, 2018, 9.0);
+insert into Grade values ('S01003', 'LN101', 'I001001', 3, 2018, 8.0);
+insert into Grade values ('S02002', 'CT101', 'I005001', 3, 2018, 7.2);
+insert into Grade values ('S04002', 'LN101', 'I001001', 3, 2018, 9.2);
+insert into Grade values ('S04003', 'CT101', 'I005001', 3, 2018, 7.7);
+insert into Grade values ('S04004', 'CT101', 'I005001', 3, 2018, 8.6);
+insert into Grade values ('S05003', 'SP101', 'I002001', 3, 2017, 8.9);
+-- -------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
