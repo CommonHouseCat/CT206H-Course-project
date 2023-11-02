@@ -1,0 +1,51 @@
+/* Online Java Compiler and Editor */
+import java.util.Scanner;
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello, World!");
+        Scanner sc = new Scanner(System.in);
+        boolean exitflag = true;
+        while(exitflag) {
+        System.out.println("-------------------------");
+        System.out.println("|Press 1 for function 1 |");
+        System.out.println("|Press 2 for function 2 |");
+        System.out.println("|Press 3 for function 3 |");
+        System.out.println("|Press 4 for function 4 |");
+        System.out.println("|Press 5 for function 5 |");
+        System.out.println("|Press 6 for function 6 |");
+        System.out.println("|Press 7 to exit        |");
+        System.out.print("Make your input: ");
+        int a = sc.nextInt(); //print next line to seprate the next instance
+        
+        sc.nextLine();
+        switch(a) {
+            case 1: 
+                System.out.println("This is function 1!");
+                break;
+            case 2: 
+                System.out.println("This is function 2!");
+                break;
+            case 3: 
+                System.out.println("This is function 3!");
+                break;
+            case 4: 
+                System.out.println("This is function 4!");
+                break;
+            case 5: 
+                System.out.println("This is function 5!");
+                break;
+            case 6: 
+                System.out.println("This is function 6!");
+                break;
+            case 7:
+                exitflag = false;
+                System.out.println("Stop the program successfully");
+                break;
+            default:
+                System.out.println("ERROR input not recognise!");
+                break;
+        }
+     }
+    }
+}
