@@ -212,13 +212,32 @@ insert into Grade values ('S04002', 'LN101', 'I001001', 3, 2018, 9.2);
 insert into Grade values ('S04003', 'CT101', 'I005001', 3, 2018, 7.7);
 insert into Grade values ('S04004', 'CT101', 'I005001', 3, 2018, 8.6);
 insert into Grade values ('S05003', 'SP101', 'I002001', 3, 2017, 8.9);
--- -------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------------------------------------------- --
+delimiter !
+create procedure ADD_STUDENT (
+	IN ID char(6),
+    IN Name varchar(50),
+    IN gender char(1),
+    IN deptID varchar(10),
+    IN addr varchar(100))
+begin
+	insert into Student values(ID, Name, gender, deptID, addr);
+end!
+-- drop procedure ADD_STUDENT;
+-- select * from Student;
+-- delete from Student where sID = 'S06001';
 
-
-
-
-
-
-
-
-
+delimiter !
+create function CALCULATE_GPA (ID char(6))
+returns float
+deterministic
+begin 
+	if exists(select sID from Student where Student.sID = ID)
+    then
+		return (select sum(grade*credit)/sum(credit) from Grade
+				join Course on Grade.cID = Course.cID
+                where Grade.sID = ID);
+	else 
+		return -1;
+	end if;
+end!
