@@ -241,3 +241,79 @@ begin
 		return -1;
 	end if;
 end!
+
+delimiter !
+create procedure STUDENT_BY_DEPARTMENT (IN deptID varchar(10))
+begin
+	select * from Student
+    join Department on Department.dID = Student.dID
+    where Student.dID = deptID;
+end!
+
+drop procedure STUDENT_BY_DEPARTMENT;
+
+delimiter !
+create procedure INSTRUCTOR_SCHEDULE (IN ID char(7))
+begin
+	select * from Instructor 
+    join Teaches on Instructor.iID = Teaches.iID
+    join Course on Teaches.cID = Course.cID
+    where Instructor.iID = ID;
+end!
+
+delimiter !
+create procedure ADD_GRADE (
+	IN IDs char(6),
+    IN IDc char(5),
+    IN IDi char(7),
+    IN sems int,
+    IN yer int,
+    IN point float)
+begin
+	insert into Grade values (IDs, IDc,IDi, sems, yer, point);
+end!
+
+delimiter !
+create procedure REPORT_CARD (IN IDs char(6))
+begin
+	select * from Student
+    join Grade on Student.sID = Grade.sID
+    join Course on Grade.cID = Course.cID
+    where Student.sID =IDs;
+end!
+
+
+delimiter !
+create function YEARLY_TUITION (IDs char(6), yar int)
+returns float
+deterministic
+begin
+	declare total float default 0;
+    
+    select sum(280000*credit) into total from Grade
+    join Course on Grade.cID = Course.cID
+    where sID = IDs and year = yar;
+    
+    return total;
+end!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
