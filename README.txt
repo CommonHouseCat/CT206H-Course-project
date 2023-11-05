@@ -38,3 +38,11 @@ This is a course project that for CT206H, implementing Connector/J with MySQL. B
 	year			int				primary key			
 	grade			float			check (grade between 0 and 10)
 
+-Functions:
++ ADD_STUDENT
++ ADD_GRADE
++ CALCULATE_GPA
++ YEARLY_TUITION
++ REPORT_CARD
++ INSTRUCTOR_SCHEDULE
++ STUDENT_BY_DEPARTMENT
