@@ -178,8 +178,8 @@ insert into Grade values ('S01003', 'EC101', 'I003001', 1, 2017, 7.5);
 insert into Grade values ('S01004', 'SP179', 'I002002', 1, 2017, 7.0);
 insert into Grade values ('S02002', 'SP179', 'I002002', 1, 2017, 9.0);
 insert into Grade values ('S04003', 'SP179', 'I002002', 1, 2017, 9.0);
-insert into Grade values ('S05002', 'LN101', 'I001001', 2, 2017, 8.3);
 
+insert into Grade values ('S05002', 'LN101', 'I001001', 2, 2017, 8.3);
 insert into Grade values ('S03003', 'CT101', 'I005002', 2, 2017, 9.1);
 insert into Grade values ('S01001', 'CT101', 'I005002', 2, 2017, 9.0);
 insert into Grade values ('S02003', 'CT101', 'I005002', 2, 2017, 9.5);
@@ -223,9 +223,18 @@ create procedure ADD_STUDENT (
 begin
 	insert into Student values(ID, Name, gender, deptID, addr);
 end!
--- drop procedure ADD_STUDENT;
--- select * from Student;
--- delete from Student where sID = 'S06001';
+
+delimiter !
+create procedure ADD_GRADE (
+	IN IDs char(6),
+    IN IDc char(5),
+    IN IDi char(7),
+    IN sems int,
+    IN yer int,
+    IN point float)
+begin
+	insert into Grade values (IDs, IDc,IDi, sems, yer, point);
+end!
 
 delimiter !
 create function CALCULATE_GPA (ID char(6))
@@ -243,47 +252,6 @@ begin
 end!
 
 delimiter !
-create procedure STUDENT_BY_DEPARTMENT (IN deptID varchar(10))
-begin
-	select * from Student
-    join Department on Department.dID = Student.dID
-    where Student.dID = deptID;
-end!
-
-drop procedure STUDENT_BY_DEPARTMENT;
-
-delimiter !
-create procedure INSTRUCTOR_SCHEDULE (IN ID char(7))
-begin
-	select * from Instructor 
-    join Teaches on Instructor.iID = Teaches.iID
-    join Course on Teaches.cID = Course.cID
-    where Instructor.iID = ID;
-end!
-
-delimiter !
-create procedure ADD_GRADE (
-	IN IDs char(6),
-    IN IDc char(5),
-    IN IDi char(7),
-    IN sems int,
-    IN yer int,
-    IN point float)
-begin
-	insert into Grade values (IDs, IDc,IDi, sems, yer, point);
-end!
-
-delimiter !
-create procedure REPORT_CARD (IN IDs char(6))
-begin
-	select * from Student
-    join Grade on Student.sID = Grade.sID
-    join Course on Grade.cID = Course.cID
-    where Student.sID =IDs;
-end!
-
-
-delimiter !
 create function YEARLY_TUITION (IDs char(6), yar int)
 returns float
 deterministic
@@ -296,6 +264,43 @@ begin
     
     return total;
 end!
+
+delimiter !
+create procedure REPORT_CARD (IN IDs char(6))
+begin
+	select * from Student
+    join Grade on Student.sID = Grade.sID
+    join Course on Grade.cID = Course.cID
+    where Student.sID =IDs;
+end!
+
+delimiter !
+create procedure INSTRUCTOR_SCHEDULE (IN ID char(7))
+begin
+	select * from Instructor 
+    join Teaches on Instructor.iID = Teaches.iID
+    join Course on Teaches.cID = Course.cID
+    where Instructor.iID = ID;
+end!
+
+delimiter !
+create procedure STUDENT_BY_DEPARTMENT (IN deptID varchar(10))
+begin
+	select * from Student
+    join Department on Department.dID = Student.dID
+    where Student.dID = deptID;
+end!
+
+
+
+
+
+
+
+
+
+
+
 
 
 
