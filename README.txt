@@ -46,4 +46,3 @@ This is a course project that for CT206H, implementing Connector/J with MySQL. B
 + REPORT_CARD
 + INSTRUCTOR_SCHEDULE
 + STUDENT_BY_DEPARTMENT
-
