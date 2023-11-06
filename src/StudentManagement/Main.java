@@ -173,7 +173,7 @@ public class Main {
 			                	int yea = sc.nextInt();
 			                	cstmt.setInt(3, yea);
 			                	cstmt.execute();
-			                	System.out.println("(1 credit = 280.000 VND");
+			                	System.out.println("(1 credit = 280.000 VND)");
 			                	System.out.println("Student " + IDm + "'s yearly tuition (" + yea +") is: " + cstmt.getFloat(1));
 
 		                	System.out.println("");

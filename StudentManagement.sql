@@ -56,16 +56,16 @@ create table Grade (
     foreign key (iID) references Teaches(iID)
 );
 
--- Drop table Department
--- Drop table Course
--- Drop table Instructor
--- Drop table Teaches
--- Drop table Student
--- Drop table Grade
+-- Drop table Grade;
+-- Drop table Student;
+-- Drop table Teaches;
+-- Drop table Instructor;
+-- Drop table Course;
+-- Drop table Department;
 
 -- select * from Department;
 insert into Department values ('law', 'Law School');
-insert into Department values ('peda', 'Pedagogical School');
+insert into Department values ('edu', 'School of Education');
 insert into Department values ('econ', 'College of Economic');
 insert into Department values ('natsci', 'College of Natural Science');
 insert into Department values ('tech', 'College of Infomation & Communication Technology');
@@ -84,8 +84,8 @@ insert into Course values ('CT101', 'Basic Infomatic', 4, 30, 60);
 
 -- select * from Instructor; 
 insert into Instructor values ('I001001', 'John Doe', 'law', 65000); 
-insert into Instructor values ('I002001', 'Michael Johnson', 'peda', 60000); 
-insert into Instructor values ('I002002', 'Emily Williams', 'peda', 58000); 
+insert into Instructor values ('I002001', 'Michael Johnson', 'edu', 60000); 
+insert into Instructor values ('I002002', 'Emily Williams', 'edu', 58000); 
 insert into Instructor values ('I003001', 'Daniel Brown', 'econ', 58000); 
 insert into Instructor values ('I004001', 'Samantha Martinez', 'natsci', 67000);
 insert into Instructor values ('I004002', 'Jane Smith', 'natsci', 70000);
@@ -127,10 +127,10 @@ insert into Student values ('S01002', 'Leman Russ', 'M', 'law', 'Condo Building 
 insert into Student values ('S01003', 'Fulgrim Le', 'F', 'law', 'Condo Building A, room 103');
 insert into Student values ('S01004', 'Vulkan Pham', 'M', 'law', 'Condo Building A, room 104');
 
-insert into Student values ('S02001', 'Erda Huynh', 'F', 'peda', 'Condo Building A, room 105');
-insert into Student values ('S02002', 'Konrad Curze', 'M', 'peda', 'Condo Building A, room 106');
-insert into Student values ('S02003', 'Sanguinius Ngo', 'F', 'peda', 'Condo Building A, room 107');
-insert into Student values ('S02004', 'Henry Do', 'M', 'peda', 'Condo Building A, room 108');
+insert into Student values ('S02001', 'Erda Huynh', 'F', 'edu', 'Condo Building A, room 105');
+insert into Student values ('S02002', 'Konrad Curze', 'M', 'edu', 'Condo Building A, room 106');
+insert into Student values ('S02003', 'Sanguinius Ngo', 'F', 'edu', 'Condo Building A, room 107');
+insert into Student values ('S02004', 'Henry Do', 'M', 'edu', 'Condo Building A, room 108');
 
 insert into Student values ('S03001', 'Isabella Vo', 'F', 'econ', 'Condo Building A, room 109');
 insert into Student values ('S03002', 'Jaghatai Khan', 'M', 'econ', 'Condo Building A, room 110');
@@ -290,35 +290,4 @@ begin
     join Department on Department.dID = Student.dID
     where Student.dID = deptID;
 end!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from Student;
