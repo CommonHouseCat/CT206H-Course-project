@@ -290,4 +290,8 @@ begin
     join Department on Department.dID = Student.dID
     where Student.dID = deptID;
 end!
+
+
 select * from Student;
+
+
